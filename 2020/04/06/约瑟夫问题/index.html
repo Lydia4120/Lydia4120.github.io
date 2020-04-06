@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Lydia_Blog</title>
+  <title>约瑟夫问题 | Lydia_Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Lydia_Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="问题来历据说著名犹太历史学家 Josephus有过以下的故事：在罗马人占领乔塔帕特后，39 个犹太人与Josephus及他的朋友躲到一个洞中，39个犹太人决定宁愿死也不要被敌人抓到，于是决定了一个自杀方式，41个人排成一个圆圈，由第1个人开始报数，每报数到第3人该人就必须自杀，然后再由下一个重新报数，直到所有人都自杀身亡为止。然而Josephus 和他的朋友并不想遵从。首先从一个人开始，越过k-2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="约瑟夫问题">
+<meta property="og:url" content="http://yoursite.com/2020/04/06/%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Lydia_Blog">
+<meta property="og:description" content="问题来历据说著名犹太历史学家 Josephus有过以下的故事：在罗马人占领乔塔帕特后，39 个犹太人与Josephus及他的朋友躲到一个洞中，39个犹太人决定宁愿死也不要被敌人抓到，于是决定了一个自杀方式，41个人排成一个圆圈，由第1个人开始报数，每报数到第3人该人就必须自杀，然后再由下一个重新报数，直到所有人都自杀身亡为止。然而Josephus 和他的朋友并不想遵从。首先从一个人开始，越过k-2">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/04/06/gJ9fhznyYSFbvmX.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/06/yScWTo6uGrkOlP4.png">
+<meta property="article:published_time" content="2020-04-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-06T14:24:37.233Z">
 <meta property="article:author" content="Lydia">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="链表">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/04/06/gJ9fhznyYSFbvmX.png">
   
 
 
@@ -139,16 +148,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-约瑟夫问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-约瑟夫问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/06/%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98/">约瑟夫问题</a>
+    <h1 class="article-title" itemprop="name">
+      约瑟夫问题
     </h1>
   
 
@@ -163,7 +170,16 @@
       
         <h1 id="问题来历"><a href="#问题来历" class="headerlink" title="问题来历"></a>问题来历</h1><p>据说著名犹太历史学家 Josephus有过以下的故事：在罗马人占领乔塔帕特后，39 个犹太人与Josephus及他的朋友躲到一个洞中，39个犹太人决定宁愿死也不要被敌人抓到，于是决定了一个自杀方式，41个人排成一个圆圈，由第1个人开始报数，每报数到第3人该人就必须自杀，然后再由下一个重新报数，直到所有人都自杀身亡为止。然而Josephus 和他的朋友并不想遵从。首先从一个人开始，越过k-2个人（因为第一个人已经被越过），并杀掉第k个人。接着，再越过k-1个人，并杀掉第k个人。这个过程沿着圆圈一直进行，直到最终只剩下一个人留下，这个人就可以继续活着。问题是，给定了和，一开始要站在什么地方才能避免被处决？Josephus要他的朋友先假装遵从，他将朋友与自己安排在第16个与第31个位置，于是逃过了这场死亡游戏。</p>
 <h1 id="问题升级"><a href="#问题升级" class="headerlink" title="问题升级"></a>问题升级</h1><p>编号为1，2，…，n的n个人按顺时针方向围坐在一张圆桌旁，每个人手中持有一个密码（正整数）。首先输入一个正整数作为报数上限值m，然后，从第一个人开始按顺时针方向自1开始顺序报数，报到m的人离开桌旁，并将他手中的密码作为新的m值，从顺时针方向的下一个就坐在桌旁的人开始重新从1报数，如此下去，直至所有人全部离开桌旁为止。</p>
-        
+<a id="more"></a>
+
+<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>创建一个<strong>循环链表</strong>，并为每个结点生成一个<strong>随机数</strong>作为密码。游戏开始后，“出局”意味着<strong>结点删除</strong>，则将被删除结点的密码赋给m作为报数上限值。然后将指针指向出局者的下一个人，将计数器置为1即重新报数。如此循环，直至最后一个人出局。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="解决代码"><a href="#解决代码" class="headerlink" title="解决代码"></a>解决代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include&lt;stdlib.h&gt;</span></span><br><span class="line"><span class="comment">#include&lt;time.h&gt;</span></span><br><span class="line"></span><br><span class="line">typedef int ElemType;</span><br><span class="line">typedef struct LNode</span><br><span class="line">&#123;</span><br><span class="line">    ElemType data;      //每个人的编号（1~n）</span><br><span class="line">    ElemType key;       //手中持有的密码</span><br><span class="line">    struct LNode* next; //next指针域</span><br><span class="line">&#125;LNode, * LinkList;</span><br><span class="line"></span><br><span class="line">//创建循环链表</span><br><span class="line">void CreateList_L(LinkList L, int n)</span><br><span class="line">&#123;</span><br><span class="line">    LinkList p, r;</span><br><span class="line">    int i;</span><br><span class="line">    r = L;</span><br><span class="line">    srand(time(0));</span><br><span class="line">    <span class="keyword">for</span> (i = 1; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        p = (LNode*)malloc(sizeof(LNode));</span><br><span class="line">        p-&gt;data = i;</span><br><span class="line">        p-&gt;key = rand() % 10 + 1;          //注意1~10的随机数生成方法</span><br><span class="line">        r-&gt;next = p;</span><br><span class="line">        r = p;</span><br><span class="line">    &#125;</span><br><span class="line">    r-&gt;next = L-&gt;next;       //将尾节点的指针域指向头结点的指针域实现循环</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//删除出局者的结点，并将他手中的密码作为新的报数上限值m</span><br><span class="line">void Delete_L(LinkList L, int m)</span><br><span class="line">&#123;</span><br><span class="line">    int j,pos;</span><br><span class="line">    LinkList p, q;</span><br><span class="line">    p = L;</span><br><span class="line">    <span class="keyword">while</span> (L-&gt;next)          //当头结点的指针域不为空即桌边还有人则可以执行“出局”</span><br><span class="line">    &#123;</span><br><span class="line">        j = 1;</span><br><span class="line">        <span class="keyword">while</span> (j &lt; m)</span><br><span class="line">        &#123;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">            ++j;</span><br><span class="line">        &#125;</span><br><span class="line">        q = p-&gt;next;          //引入q来暂时存放即将删除的结点</span><br><span class="line">        p-&gt;next = q-&gt;next;</span><br><span class="line">        pos = q-&gt;data;</span><br><span class="line">        m = q-&gt;key;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"出局者编号：%d \t出局者手中的密码：%d \n"</span>, pos,m);</span><br><span class="line">        free(q);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入人数n："</span>);</span><br><span class="line">    int n;</span><br><span class="line">    scanf_s(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">if</span> (n &gt; 0)</span><br><span class="line">    &#123;</span><br><span class="line">        LinkList L;</span><br><span class="line">        L = (LinkList)malloc(sizeof(LNode));</span><br><span class="line">        L-&gt;data = NULL;</span><br><span class="line">        CreateList_L(L, n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"请输入一个正整数作为上限值m："</span>);</span><br><span class="line">        int m;</span><br><span class="line">        scanf_s(<span class="string">"%d"</span>, &amp;m);</span><br><span class="line">        <span class="keyword">if</span> (m &gt; 0)</span><br><span class="line">            Delete_L(L, m);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"输入有误！！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"输入有误！！"</span>);</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码运行结果"><a href="#代码运行结果" class="headerlink" title="代码运行结果"></a>代码运行结果</h2><p><img src="https://i.loli.net/2020/04/06/gJ9fhznyYSFbvmX.png" alt="image.png"></p>
+<h1 id="补充解法"><a href="#补充解法" class="headerlink" title="补充解法"></a>补充解法</h1><p>在逛csdn时发现大佬的递归求解方案真的666，特此附上。<br><a href="https://blog.csdn.net/yanweibujian/article/details/50876631?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-5&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-5" target="_blank" rel="noopener">约瑟夫环问题三解法：数组+链表+递归</a></p>
+<h2 id="截取自大佬的递归解法"><a href="#截取自大佬的递归解法" class="headerlink" title="截取自大佬的递归解法"></a>截取自大佬的递归解法</h2><p><em>思路即运用求模解决旧环与新环编号变更的问题，将两者形成了一种映射关系【 新环是由  (旧环中编号-最大报数值)%旧总人数  得到的，所以逆推时可以由 ( 新环中的数字 + 最大报数值 )% 旧总人数取得】</em></p>
+<h3 id="解决代码-1"><a href="#解决代码-1" class="headerlink" title="解决代码"></a>解决代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include&lt;stdlib.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define FAIL 0</span></span><br><span class="line"><span class="comment">#define SUCCESS 1</span></span><br><span class="line"></span><br><span class="line">typedef struct gamenode</span><br><span class="line">&#123;</span><br><span class="line">    int number;</span><br><span class="line">    struct gamenode* next;</span><br><span class="line">&#125; node;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//读入初值</span><br><span class="line">int getvalue(int* sum, int* count, int* alive)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入要参与约瑟夫生存游戏的人数:(人数&gt;0)\n"</span>);</span><br><span class="line">    <span class="keyword">while</span> (1)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf_s(<span class="string">"%d"</span>, sum);</span><br><span class="line">        <span class="keyword">if</span> (*sum &gt; 0)</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"输入无效，请重新输入。\n"</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入能报到的最大数字:(1&lt;=数字)\n"</span>);</span><br><span class="line">    <span class="keyword">while</span> (1)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf_s(<span class="string">"%d"</span>, count);</span><br><span class="line">        <span class="keyword">if</span> (*count &gt;= 1)</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"输入无效，请重新输入。\n"</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入要求最后存活的人数:(0&lt;=人数&lt;=%d)\n"</span>, *sum);</span><br><span class="line">    <span class="keyword">while</span> (1)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf_s(<span class="string">"%d"</span>, alive);</span><br><span class="line">        <span class="keyword">if</span> (*alive &gt;= 0 &amp;&amp; *alive &lt;= *sum)</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"输入无效，请重新输入。\n"</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//递归解法</span><br><span class="line">int ysfdg(int sum, int value, int n)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == 1)</span><br><span class="line">        <span class="built_in">return</span> (sum + value - 1) % sum;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">return</span> (ysfdg(sum - 1, value, n - 1) + value) % sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//主函数</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int sum = 0, count = 0, alive = 0, i = 0;</span><br><span class="line">    //读入总人数，报数值，存活人数</span><br><span class="line">    getvalue(&amp;sum, &amp;count, &amp;alive);</span><br><span class="line">    <span class="keyword">for</span> (i = 1; i &lt;= sum - alive; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"第%2d个被扔海里人的编号:%2d\n"</span>, i, ysfdg(sum, count, i) + 1);</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码运行结果-1"><a href="#代码运行结果-1" class="headerlink" title="代码运行结果"></a>代码运行结果</h3><p><img src="https://i.loli.net/2020/04/06/yScWTo6uGrkOlP4.png" alt="image.png"></p>
+
       
 
       
@@ -200,16 +216,75 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/06/%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98/">Read More >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/06/%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/02/first/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python的 tkinter + turtle 完成给闺蜜的云礼物</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -224,111 +299,44 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-<!--显示阅读次数-->
-<!---->
-<!--显示阅读次数完毕-->
-  
-    <article id="post-first" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/02/first/">Python的 tkinter + turtle 完成给闺蜜的云礼物</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/02/first/" class="archive-article-date">
-  	<time datetime="2020-04-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  第一篇blog，我还是想走点心。<br>  四年来我俩都是见面过生日，本来第五年也该如此。谁料得到新冠病毒的肆虐，所以希望只好作罢。<br>  正好疫情下啥啥都是“云”，连歌手都云录制了，那我也赶波潮儿，把python整成exe发送云礼物好啦~</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gadget</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/小玩意儿//" class="article-tag-list-link color5">小玩意儿</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/02/first/">Read More >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题来历"><span class="toc-number">1.</span> <span class="toc-text">问题来历</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题升级"><span class="toc-number">2.</span> <span class="toc-text">问题升级</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题分析"><span class="toc-number">3.</span> <span class="toc-text">问题分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决方案"><span class="toc-number">4.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解决代码"><span class="toc-number">4.1.</span> <span class="toc-text">解决代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码运行结果"><span class="toc-number">4.2.</span> <span class="toc-text">代码运行结果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#补充解法"><span class="toc-number">5.</span> <span class="toc-text">补充解法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#截取自大佬的递归解法"><span class="toc-number">5.1.</span> <span class="toc-text">截取自大佬的递归解法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解决代码-1"><span class="toc-number">5.1.1.</span> <span class="toc-text">解决代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码运行结果-1"><span class="toc-number">5.1.2.</span> <span class="toc-text">代码运行结果</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
+  
+  
+  
+
+  
+
+  
+
+  
+
 
 <!--显示阅读次数-->
-<!---->
+<!--
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#0099ff;font-size:14px;">
+  	阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+-->
 <!--显示阅读次数完毕-->
-  
-  
-
-
           </div>
         </div>
       </div>
@@ -350,8 +358,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
