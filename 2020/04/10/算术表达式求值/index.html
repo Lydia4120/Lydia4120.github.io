@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: C语言 | Lydia_Blog</title>
+  <title>算术表达式求值 | Lydia_Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Lydia_Blog">
-<meta property="og:url" content="http://yoursite.com/tags/C%E8%AF%AD%E8%A8%80/index.html">
+  <meta name="description" content="问题描述设计一个程序，用算符优先法对算术表达式求值。（基本要求：以字符序列的形式从终端输入语法正确不含变量的整数表达式，利用算符优先关系，实现对算术四则混合运算表达式求值。）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算术表达式求值">
+<meta property="og:url" content="http://yoursite.com/2020/04/10/%E7%AE%97%E6%9C%AF%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC/index.html">
 <meta property="og:site_name" content="Lydia_Blog">
+<meta property="og:description" content="问题描述设计一个程序，用算符优先法对算术表达式求值。（基本要求：以字符序列的形式从终端输入语法正确不含变量的整数表达式，利用算符优先关系，实现对算术四则混合运算表达式求值。）">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/04/10/C86fNsiBrRgHXQt.png">
+<meta property="article:published_time" content="2020-04-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-10T11:23:56.208Z">
 <meta property="article:author" content="Lydia">
+<meta property="article:tag" content="栈">
+<meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/04/10/C86fNsiBrRgHXQt.png">
   
 
 
@@ -139,52 +147,59 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-算术表达式求值" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/06/%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-04-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/06/%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98/">约瑟夫问题</a>
+    <h1 class="article-title" itemprop="name">
+      算术表达式求值
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/04/10/%E7%AE%97%E6%9C%AF%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC/" class="archive-article-date">
+  	<time datetime="2020-04-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>设计一个程序，用算符优先法对算术表达式求值。<br>（基本要求：以字符序列的形式从终端输入语法正确不含变量的整数表达式，利用算符优先关系，实现对算术四则混合运算表达式求值。）</p>
+<a id="more"></a>
+
+<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p><em>详见代码的注释。</em><br><strong>举例2+3*2+(9-1)/4的栈变化</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">存放数字的栈：</span><br><span class="line">|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |    |</span><br><span class="line">|   |&#x3D;&#x3D;&gt;|   |&#x3D;&#x3D;&gt;| 2 |&#x3D;&#x3D;&gt;|   |&#x3D;&#x3D;&gt;|   |&#x3D;&#x3D;&gt;| 1 |&#x3D;&#x3D;&gt;|   |&#x3D;&#x3D;&gt;| 4 |&#x3D;&#x3D;&gt;|   |&#x3D;&#x3D;&gt;|    |</span><br><span class="line">|   |   | 3 |   | 3 |   | 6 |   | 9 |   | 9 |   | 8 |   | 8 |   | 2 |   |    |</span><br><span class="line">| 2 |   | 2 |   | 2 |   | 2 |   | 8 |   | 8 |   | 8 |   | 8 |   | 8 |   | 10 |</span><br><span class="line">存放算符的栈：</span><br><span class="line">|   |   |   |   |   |   |   |   |   |   | - |   |   |   |   |   |   |   |   |</span><br><span class="line">|   |&#x3D;&#x3D;&gt;|   |&#x3D;&#x3D;&gt;| * |&#x3D;&#x3D;&gt;|   |&#x3D;&#x3D;&gt;| ( |&#x3D;&#x3D;&gt;| ( |&#x3D;&#x3D;&gt;|   |&#x3D;&#x3D;&gt;| &#x2F; |&#x3D;&#x3D;&gt;|   |&#x3D;&#x3D;&gt;|   |</span><br><span class="line">|   |   | + |   | + |   | + |   | + |   | + |   | + |   | + |   | + |   |   |</span><br><span class="line">| # |   | # |   | # |   | # |   | # |   | # |   | # |   | # |   | # |   | # |</span><br></pre></td></tr></table></figure>
+
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="解决代码"><a href="#解决代码" class="headerlink" title="解决代码"></a>解决代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include &lt;stack&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">stack&lt;int&gt; S_num;    //存放数字的栈</span><br><span class="line">stack&lt;char&gt; S_sign;  //存放算符的栈</span><br><span class="line">void calculate()</span><br><span class="line">&#123;</span><br><span class="line">    int num1, num2;</span><br><span class="line">    char sign;</span><br><span class="line">    sign = S_sign.top();</span><br><span class="line">    S_sign.pop();         //取栈顶算符</span><br><span class="line">    num2 = S_num.top();</span><br><span class="line">    S_num.pop();</span><br><span class="line">    num1 = S_num.top();</span><br><span class="line">    S_num.pop();          //取栈顶两个数字</span><br><span class="line">    switch (sign)         //判断算符种类并运算</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'+'</span>: num1 = num1 + num2; <span class="built_in">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'-'</span>: num1 = num1 - num2; <span class="built_in">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'*'</span>: num1 = num1 * num2; <span class="built_in">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'/'</span>: num1 = num1 / num2; <span class="built_in">break</span>;</span><br><span class="line">    default:</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    S_num.push(num1);     //📍将算好的数字再次压栈！！</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char ch, e;</span><br><span class="line">    S_sign.push(<span class="string">'#'</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">"请输入一则不含变量的整数表达式："</span>;</span><br><span class="line">    <span class="keyword">while</span> ((ch = getchar()) != <span class="string">'\n'</span>)         //这里直接每输入一个字符就做如下判断</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ch &gt;= <span class="string">'0'</span> &amp;&amp; ch &lt;= <span class="string">'9'</span>)</span><br><span class="line">            S_num.push((int)ch - 48);        //数字则放入数字栈</span><br><span class="line">                                             //（此处一定要记得强制转换并减48，48是0的ASCII码）</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            switch (ch)</span><br><span class="line">            &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'('</span>:</span><br><span class="line">                S_sign.push(ch);</span><br><span class="line">                <span class="built_in">break</span>;                        //‘（’啥都不管直接压栈</span><br><span class="line">            <span class="keyword">case</span> <span class="string">')'</span>:</span><br><span class="line">                <span class="keyword">while</span> (S_sign.top() != <span class="string">'('</span>)</span><br><span class="line">                    calculate();</span><br><span class="line">                S_sign.pop();</span><br><span class="line">                <span class="built_in">break</span>;                        //‘）’说明要解决括号内的计算直到‘）’出现</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'*'</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'/'</span>:</span><br><span class="line">                e = S_sign.top();</span><br><span class="line">                <span class="keyword">if</span> (e == <span class="string">'*'</span> || e == <span class="string">'/'</span>)</span><br><span class="line">                    calculate();</span><br><span class="line">                S_sign.push(ch);</span><br><span class="line">                <span class="built_in">break</span>;                        //‘*’和‘/’优先级相同，</span><br><span class="line">                                              //若栈中的为同优先级则计算，否则压栈</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'+'</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'-'</span>:</span><br><span class="line">                e = S_sign.top();</span><br><span class="line">                <span class="keyword">if</span> (e != <span class="string">'#'</span> &amp;&amp; e != <span class="string">'('</span>)</span><br><span class="line">                    calculate();</span><br><span class="line">                S_sign.push(ch);</span><br><span class="line">                <span class="built_in">break</span>;                        //‘+’和‘-’优先级相同，</span><br><span class="line">                                              //若栈中的不为‘（’和‘<span class="comment">#’则计算，否则压栈</span></span><br><span class="line">            default:</span><br><span class="line">                cout &lt;&lt; <span class="string">"输入有误！！"</span> &lt;&lt; endl;</span><br><span class="line">                <span class="built_in">return</span> 0;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (S_sign.top() != <span class="string">'#'</span>)</span><br><span class="line">        calculate();                          //📍栈中还有剩余元素要继续计算完</span><br><span class="line">    e = S_num.top();</span><br><span class="line">    cout &lt;&lt; <span class="string">"该算术表达式的值为:"</span> &lt;&lt; (int)e &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码运行结果"><a href="#代码运行结果" class="headerlink" title="代码运行结果"></a>代码运行结果</h2><p><img src="https://i.loli.net/2020/04/10/C86fNsiBrRgHXQt.png" alt="image.png"></p>
+<h1 id="补充C-的stack类"><a href="#补充C-的stack类" class="headerlink" title="补充C++的stack类"></a>补充C++的stack类</h1><p>头文件： #include<stack><br>stack <int> s;    　　　　//定义一个int型栈<br>s.empty();               //返回栈是否为空<br>s.size();                //返回当前栈中元素的个数<br>s.push();                //在栈中压入一个元素<br>s.pop();                 //弹出栈顶的元素<br>s.top();                 //返回栈顶的元素,但不会删除</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链表</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -197,19 +212,128 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/10/%E7%AE%97%E6%9C%AF%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/04/06/%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">约瑟夫问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题分析"><span class="toc-number">2.</span> <span class="toc-text">问题分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决方案"><span class="toc-number">3.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解决代码"><span class="toc-number">3.1.</span> <span class="toc-text">解决代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码运行结果"><span class="toc-number">3.2.</span> <span class="toc-text">代码运行结果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#补充C-的stack类"><span class="toc-number">4.</span> <span class="toc-text">补充C++的stack类</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
+<!--显示阅读次数-->
+<!--
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#0099ff;font-size:14px;">
+  	阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+-->
+<!--显示阅读次数完毕-->
           </div>
         </div>
       </div>
@@ -232,9 +356,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -312,11 +436,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
               </li>
             
             <div class="clearfix"></div>
